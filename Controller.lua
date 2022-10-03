@@ -59,6 +59,7 @@ sit = false
 MoveButton.MouseButton1Click:Connect(function()
 	if following == false then
 		following = true
+		pcall(function()
 		for _,g in pairs(workspace:GetChildren()) do
 		if g:FindFirstChildOfClass("Humanoid") then
 			if game.Players:FindFirstChild(g.Name) == nil then
@@ -72,6 +73,7 @@ MoveButton.MouseButton1Click:Connect(function()
 				end
 			end
 		end
+	end)
 	elseif following == true then
 	print("They lost interest in you :|")
 	following = false	
@@ -83,6 +85,7 @@ KidnapButton.MouseButton1Click:Connect(function()
 	for _,g in pairs(workspace:GetChildren()) do
 		if g:FindFirstChildOfClass("Humanoid") then
 			if game.Players:FindFirstChild(g.Name) == nil then
+				pcall(function()
 					print(g.Name.." is now kidnapped heheheha")
 					
 					g.Humanoid.PlatformStand = true
@@ -115,10 +118,12 @@ KidnapButton.MouseButton1Click:Connect(function()
 				end
 			end
 		end
+	end)
 	elseif kidnap == true then
 		for _,g in pairs(workspace:GetChildren()) do
 			if g:FindFirstChildOfClass("Humanoid") then
 				if game.Players:FindFirstChild(g.Name) == nil then
+					pcall(function()
 					print(g.Name.." is now not kidnapped :(") 
 					g.Humanoid.PlatformStand = false
 					local rope2 = game.Players.LocalPlayer.Character:FindFirstChildOfClass("RopeConstraint")
@@ -140,6 +145,7 @@ KidnapButton.MouseButton1Click:Connect(function()
 		end
 	kidnap = false	
 	end
+end)
 end)
 SitButton.MouseButton1Click:Connect(function()			
 	if sit == false then
