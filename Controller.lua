@@ -85,10 +85,9 @@ KidnapButton.MouseButton1Click:Connect(function()
 	for _,g in pairs(workspace:GetChildren()) do
 		if g:FindFirstChildOfClass("Humanoid") then
 			if game.Players:FindFirstChild(g.Name) == nil then
-				pcall(function()
 					print(g.Name.." is now kidnapped heheheha")
-					
-					g.Humanoid.PlatformStand = true
+					pcall(function()
+        			g.Humanoid.PlatformStand = true
 					rope = Instance.new("RopeConstraint")
 					attachment1 = Instance.new("Attachment")
 					attachment2 = Instance.new("Attachment")
@@ -114,11 +113,10 @@ KidnapButton.MouseButton1Click:Connect(function()
 					rope.Parent = game.Players.LocalPlayer.Character
 					rope.Visible = true
 					rope.Length = 10
-				
+					end)
 				end
 			end
 		end
-	end)
 	elseif kidnap == true then
 		for _,g in pairs(workspace:GetChildren()) do
 			if g:FindFirstChildOfClass("Humanoid") then
@@ -140,13 +138,15 @@ KidnapButton.MouseButton1Click:Connect(function()
 					game.Players.LocalPlayer.Character:FindFirstChild("Right Arm").Attach2:Destroy()
 					end
 					rope2:Destroy()
+					end)
+
 				end
 			end
 		end
 	kidnap = false	
 	end
 end)
-end)
+
 SitButton.MouseButton1Click:Connect(function()			
 	if sit == false then
 		sit = true
